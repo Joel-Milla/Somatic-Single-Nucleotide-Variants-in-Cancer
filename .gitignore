@@ -1,0 +1,10 @@
+.DS_Store
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# folders with the data
+calculateF1
+real1
+real2*
+syn*
+test
