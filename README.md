@@ -6,7 +6,7 @@ We have 4 different SNV calling algorithms that sometimes yield different result
 - This means that this four algorithms give sometimes different lists of possible cancer variants that are different than in our normal blood, and the job is to use the four lists to produce a final list in order to be more certain if a variant is part of the cancer or not. 
 
 ### Dataset
-The dataset can be found in [here](https://tecmx-my.sharepoint.com/:u:/g/personal/a01177727_tec_mx/EUXNrdoUX3xJn91B7ru9EWcBOVTvBk1LZSRX6H8lzzua1g?e=kwy8Rk). The directory contains a folder for each tumor sample. Each tumor folder contains the following files:
+The dataset can be found in [here](https://tecmx-my.sharepoint.com/:u:/g/personal/a01177727_tec_mx/EUXNrdoUX3xJn91B7ru9EWcBOVTvBk1LZSRX6H8lzzua1g?e=kwy8Rk) (~12GB). The directory contains a folder for each tumor sample. Each tumor folder contains the following files:
 1. X_freebayes.vcf : Positions called as SNVs by freebayes algorithm.
 2. X_mutect.vcf : Positions called as SNVs by mutect algorithm.
 3. X_vardict.vcf : Positions called as SNVs by vardict algorithm.
