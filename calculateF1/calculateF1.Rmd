@@ -1,0 +1,56 @@
+---
+title: "Variant Calling model evaluation demo"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+This notebook calculates F1 statistics (precision score, recall score and F1 score) for a bed file with predicted mutations.
+
+## Set up and imports 
+
+```{r imports}
+# clean current envrionement variables
+rm(list = ls())
+# set your current working directory
+setwd("~/OneDrive/Work/Teaching/CS4220 2022/Project/Data/calculateF1"); print(getwd())
+```
+
+
+## Calculate F1 score metrics
+
+```{r evaluateclassifier}
+
+calc.F1 = function(pred,truth) {
+  
+  # append 'Chr' and 'StartPos'
+  predv = paste(pred[,1],pred[,2])
+  truthv = paste(truth[,1],truth[,2])
+  
+  res = data.frame(matrix(nrow = 1,ncol = 6))
+  colnames(res) = c('TP','FP','FN','Precision','Recall','F1')
+
+  res$TP = sum(predv %in% truthv)
+  res$FP = sum(!(predv %in% truthv))
+  res$FN = sum(!(truthv %in% predv))
+
+  res$Precision = res$TP/(res$TP + res$FP)
+  res$Recall = res$TP/(res$TP + res$FN)
+  res$F1 = (2*res$Precision*res$Recall)/(res$Precision + res$Recall)
+  
+  return(res)
+}
+
+# load ground truth and predictions
+truth = read.table('real1_truth.bed', header = F)
+mypred = read.table('my-real1-predictions.bed', header = T)
+
+head(truth); head(mypred)
+
+f1stats = calc.F1(mypred,truth)
+
+print(f1stats)
+```
+
+

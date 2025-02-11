@@ -2,13 +2,17 @@
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
 
-# folders with the data
-calculateF1
-real1
-real2*
-syn*
-test
+# Ignore folders in the root directory only
+/real1
+/real2*
+/syn*
+/test
 
+# Allow tracking of those folders inside "data"
+!data/real1
+!data/real2*
+!data/syn*
+!data/test
 
 ### R related ###
 # History files
