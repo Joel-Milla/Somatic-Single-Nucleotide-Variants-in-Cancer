@@ -1,5 +1,5 @@
 ## Background
-This project calls somatic single nucleotide variants (SNVs) in cancer 
+This project calls somatic single nucleotide variants (SNVs) in cancer: 
 - SNVs are single nucleotide base changes that occur after being borned, not inherited (genetic mutation that can cause cancer). There exists SNVs calling algorithms that try to read all this variants that exists in the cancer tumour but not in our normal blood. It is not as simply just comparing a cancer tumour with our normal cells. Reads of our genome are noisy, and is difficult to asses if a variant is part of a somatic cell -cancer- or not.
 
 We have 4 different SNV calling algorithms that sometimes yield different results. The four algorithms are: MuTect [link](https://www.broadinstitute.org/cancer/cga/mutect), VarScan [link](http://dkoboldt.github.io/varscan/), FreeBayes [link](https://github.com/ekg/freebayes), and VarDict [link](https://github.com/AstraZeneca-NGS/VarDictJava). The task of the project is to construct a robust meta-learning approach that integrates the calls from the different methods in a way that achieves highest accuracy on an independent test dataset.
